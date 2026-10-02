@@ -1,16 +1,19 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Tete } from './composants/tete/tete';
 import { Pied } from './composants/pied/pied';
-import { PiedPage } from './composants/pied-page/pied-page';
-import { ListeCoursComponent } from './composants/liste-cours/liste-cours';
+import { Cours, ListeCoursComponent } from './composants/liste-cours/liste-cours';
+import { DetailsCours } from './composants/details-cours/details-cours';
 
 @Component({
-  imports: [Tete, Pied, ListeCoursComponent],
+  imports: [Tete, Pied, ListeCoursComponent, DetailsCours],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
+  coursSelectionne: Cours | null = null;
+  onSelectionCours(c: Cours) {
+    this.coursSelectionne = c;
+  }
   protected readonly title = signal('demo');
 }

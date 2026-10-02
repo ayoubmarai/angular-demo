@@ -1,0 +1,33 @@
+.carte-cours.actif {
+  border: 2px solid #dd0031;
+  background-color: #fdecef;
+}
+.carte-cours.actif:hover {
+  border: 2px solid #dd0031;
+  background-color: #ffdde3;
+}
+
+.carte-cours {
+  margin: 10px;
+  border-radius: 3px;;
+  padding: 1em; 
+  border: 3px solid gray;
+  transition: 0.3s;
+}
+
+.carte-cours-places{
+    border-top: 1px solid rgb(87, 107, 114);
+    padding-top: 8px;
+    color:rgb(53, 53, 53);
+    font-style: italic;
+    font-size: medium;
+}
+
+.carte-cours:hover{
+    background-color: aliceblue;
+}
+
+.liste-cours {
+  display: flex;
+  justify-content: space-between;
+}
