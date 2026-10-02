@@ -1,7 +1,7 @@
 <section class="liste-cours">
   @for (c of cours; track c.titre) {
     <article class="carte-cours" [class.actif]="c === coursActif" (click)="selectionner(c)">
-      <h2 class="carte-cours-titre">{{ c.titre }}</h2>
+      <h3 class="carte-cours-titre">{{ c.titre }}</h3>
       <p class="carte-cours-categorie">Catégorie : {{ c.categorie }}</p>
       <p class="carte-cours-duree">Durée : {{ c.duree }}</p>
       <p class="carte-cours-places">Places disponibles : {{ c.places }}</p>

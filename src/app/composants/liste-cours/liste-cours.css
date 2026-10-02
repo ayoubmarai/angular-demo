@@ -8,26 +8,36 @@
 }
 
 .carte-cours {
+  width: 20%;
   margin: 10px;
-  border-radius: 3px;;
-  padding: 1em; 
-  border: 3px solid gray;
+  border-radius: 15px;
+  padding: 1em;
+  border: 2px solid lightgray;
   transition: 0.3s;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 14em;
 }
 
-.carte-cours-places{
-    border-top: 1px solid rgb(87, 107, 114);
-    padding-top: 8px;
-    color:rgb(53, 53, 53);
-    font-style: italic;
-    font-size: medium;
+.carte-cours-places {
+  border-top: 1px solid rgb(87, 107, 114);
+  padding-top: 8px;
+  color: rgb(53, 53, 53);
+  font-style: italic;
+  font-size: medium;
 }
 
-.carte-cours:hover{
-    background-color: aliceblue;
+.carte-cours:hover {
+  background-color: aliceblue;
+  scale: 103%;
 }
 
 .liste-cours {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: start;
+  justify-self: center;
+  gap: 1em;
+  margin-top: 1em;
 }
