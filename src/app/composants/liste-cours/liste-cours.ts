@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { FiltreCategoriePipe } from '../../pipes/filtre-categorie-pipe';
 export interface Cours {
   titre: string;
   categorie: string;
@@ -8,7 +10,7 @@ export interface Cours {
 }
 
 @Component({
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, FiltreCategoriePipe],
   selector: 'app-liste-cours',
   styleUrl: './liste-cours.css',
   templateUrl: './liste-cours.html',
@@ -16,6 +18,7 @@ export interface Cours {
 export class ListeCoursComponent {
   @Output() coursSelectionne = new EventEmitter<Cours>();
   coursActif: Cours | null = null;
+  recherche = '';
   cours: Cours[] = [
     { titre: 'Angular avancé', categorie: 'Front-end', duree: '12h', places: 8 },
     { titre: 'TypeScript pour développeurs', categorie: 'Langage', duree: '8h', places: 15 },

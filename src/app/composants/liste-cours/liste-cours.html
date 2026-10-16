@@ -1,5 +1,6 @@
+<input [(ngModel)]="recherche" placeholder="categorie"/>
 <section class="liste-cours">
-  @for (c of cours; track c.titre) {
+  @for (c of cours | filtreCategorie : recherche; track c.titre) {
     <article class="carte-cours container" [class.actif]="c === coursActif" (click)="selectionner(c)">
       <span class="carte-cours-titre">
         <h3 >{{ c.titre }}</h3>
