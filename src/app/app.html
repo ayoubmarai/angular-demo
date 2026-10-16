@@ -13,9 +13,15 @@
   </head>
 
   <body>
-    <app-tete />
+    <app-tete></app-tete>
     <app-liste-cours (coursSelectionne)="onSelectionCours($event)"></app-liste-cours>
     <app-details-cours [cours]="coursSelectionne"></app-details-cours>
-    <app-pied />
+    @defer (on viewport) {
+      <app-pied></app-pied>
+    } @placeholder {
+      <div class="pied-page-placeholder">...</div>
+    } @loading {
+      <p>Chargement...</p>
+    }
   </body>
 </html>

@@ -1,4 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { FiltreCoursPipe } from '../../pipes/filtre-cours-pipe';
+import { TriCoursPipe } from '../../pipes/tri-cours-pipe';
+import { UpperCasePipe } from '@angular/common';
 
 export interface Cours {
   titre: string;
@@ -8,13 +12,15 @@ export interface Cours {
 }
 
 @Component({
-  imports: [],
+  imports: [FormsModule, FiltreCoursPipe, TriCoursPipe, UpperCasePipe],
   selector: 'app-liste-cours',
   styleUrl: './liste-cours.css',
   templateUrl: './liste-cours.html',
 })
 export class ListeCoursComponent {
   @Output() coursSelectionne = new EventEmitter<Cours>();
+  recherche = '';
+  tri: 'asc' | 'desc' = 'asc';
   coursActif: Cours | null = null;
   cours: Cours[] = [
     { titre: 'Angular avancé', categorie: 'Front-end', duree: '12h', places: 8 },
@@ -25,9 +31,10 @@ export class ListeCoursComponent {
     { titre: 'Git et travail collaboratif', categorie: 'Outils', duree: '4h', places: 20 },
   ];
 
-
-  selectionner(c: Cours){
+  selectionner(c: Cours) {
     this.coursActif = c;
     this.coursSelectionne.emit(c);
   }
+
+  
 }
