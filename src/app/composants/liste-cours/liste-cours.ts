@@ -1,5 +1,5 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-
 export interface Cours {
   titre: string;
   categorie: string;
@@ -8,7 +8,7 @@ export interface Cours {
 }
 
 @Component({
-  imports: [],
+  imports: [CommonModule],
   selector: 'app-liste-cours',
   styleUrl: './liste-cours.css',
   templateUrl: './liste-cours.html',
