@@ -10,7 +10,7 @@
     @for (c of cours | filtreCours: recherche | triCours: tri; track c.titre) {
       <article class="carte-cours" [class.actif]="c === coursActif" (click)="selectionner(c)">
         <span class="carte-titre-cont">
-          <h3 class="carte-cours-titre">{{ c.titre }}</h3>
+          <h3 class="carte-cours-titre">{{ c.titre | tronquer:21 }}</h3>
           @switch (c.categorie) {
             @case ('Front-end') {
               <span class="badge badge--frontend">{{ c.categorie | uppercase }}</span>
@@ -27,7 +27,7 @@
           }
         </span>
         <p class="carte-cours-duree">Durée : {{ c.duree }}</p>
-        <p class="carte-cours-places">Places disponibles : {{ c.places }}</p>
+        <p class="carte-cours-places">{{c.places | placesRestantes:10}}</p>
       </article>
     } @empty {
       <p class="liste-vide">Aucun cours ne correspond à la recherche.</p>
