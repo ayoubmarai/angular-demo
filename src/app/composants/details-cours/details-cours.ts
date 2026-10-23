@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Cours } from '../liste-cours/liste-cours';
+import { Cours } from '../../donnees/cours';
+
 
 @Component({
   imports: [],

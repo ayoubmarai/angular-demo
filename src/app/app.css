@@ -1,4 +1,27 @@
 body {
-    font-family: "Roboto", sans-serif;
-    font-size: larger;
+  font-family: 'Roboto', sans-serif;
+  font-size: larger;
+}
+
+.menu {
+  display: flex;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgb(241, 242, 242);
+}
+.menu a {
+  color: black;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+.menu a:hover {
+  background: rgb(241, 242, 242);
+}
+.menu a.actif {
+  font-weight: bold;
+  background: #dd0031;
+}
+main {
+  padding: 24px;
 }

@@ -1,36 +1,37 @@
 <span>
-  <div class="controles">
-    <input [(ngModel)]="recherche" placeholder="Rechercher un cours..." />
-    <select [(ngModel)]="tri">
-      <option value="asc">Titre A → Z</option>
-      <option value="desc">Titre Z → A</option>
-    </select>
-  </div>
-  <section class="liste-cours">
-    @for (c of cours | filtreCours: recherche | triCours: tri; track c.titre) {
-      <article class="carte-cours" [class.actif]="c === coursActif" (click)="selectionner(c)">
-        <span class="carte-titre-cont">
-          <h3 class="carte-cours-titre">{{ c.titre | tronquer:21 }}</h3>
-          @switch (c.categorie) {
-            @case ('Front-end') {
-              <span class="badge badge--frontend">{{ c.categorie | uppercase }}</span>
-            }
-            @case ('Back-end') {
-              <span class="badge badge--backend">{{ c.categorie | uppercase }}</span>
-            }
-            @case ('Langage') {
-              <span class="badge badge--langage">{{ c.categorie | uppercase }}</span>
-            }
-            @default {
-              <span class="badge badge--autre">{{ c.categorie | uppercase }}</span>
-            }
-          }
-        </span>
-        <p class="carte-cours-duree">Durée : {{ c.duree }}</p>
-        <p class="carte-cours-places">{{c.places | placesRestantes:10}}</p>
-      </article>
-    } @empty {
-      <p class="liste-vide">Aucun cours ne correspond à la recherche.</p>
-    }
-  </section>
+    <div class="controles">
+        <input [(ngModel)]="recherche" placeholder="Rechercher un cours..." />
+        <select [(ngModel)]="tri">
+            <option value="asc">Titre A → Z</option>
+            <option value="desc">Titre Z → A</option>
+        </select>
+    </div>
+    <section class="liste-cours">
+        @for (c of cours | filtreCours: recherche | triCours: tri; track c.titre) {
+            <article class="carte-cours" [class.actif]="c === coursActif" (click)="selectionner(c)">
+                <span class="carte-titre-cont">
+                    <h3 class="carte-cours-titre">{{ c.titre | tronquer: 21 }}</h3>
+                    @switch (c.categorie) {
+                        @case ('Front-end') {
+                            <span class="badge badge--frontend">{{ c.categorie | uppercase }}</span>
+                        }
+                        @case ('Back-end') {
+                            <span class="badge badge--backend">{{ c.categorie | uppercase }}</span>
+                        }
+                        @case ('Langage') {
+                            <span class="badge badge--langage">{{ c.categorie | uppercase }}</span>
+                        }
+                        @default {
+                            <span class="badge badge--autre">{{ c.categorie | uppercase }}</span>
+                        }
+                    }
+                </span>
+                <p class="carte-cours-duree">Durée : {{ c.duree }}</p>
+                <p class="carte-cours-places">{{ c.places | placesRestantes: 10 }}</p>
+                <a [routerLink]="['/cours', c.id]">Voir le détail</a>
+            </article>
+        } @empty {
+            <p class="liste-vide">Aucun cours ne correspond à la recherche.</p>
+        }
+    </section>
 </span>
