@@ -5,8 +5,15 @@ import { Connexion } from './pages/connexion/connexion';
 import { Introuvable } from './pages/introuvable/introuvable';
 import { ListeCoursComponent } from './composants/liste-cours/liste-cours';
 import { authGuard } from './guards/auth-guard';
+import { Inscription } from './pages/inscription/inscription';
 
 export const routes: Routes = [
+  {
+    path: 'cours/:id/inscription',
+    component: Inscription,
+    canActivate: [authGuard],
+    title: 'Inscription',
+  },
   {
     path: 'mes-inscriptions',
     loadComponent: () =>
